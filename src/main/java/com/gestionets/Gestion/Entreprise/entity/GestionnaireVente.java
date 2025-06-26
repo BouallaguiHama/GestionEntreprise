@@ -2,7 +2,8 @@ package com.gestionets.Gestion.Entreprise.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
+
+>>>>>>> intialisation_du_projet
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
+
+=======
+@Builder
+>>>>>>> intialisation_du_projet
 @PrimaryKeyJoinColumn(name = "id_gestionnaire_vente") // clé primaire jointe sur Gestionnaire
 public class GestionnaireVente extends Gestionnaire {
 
