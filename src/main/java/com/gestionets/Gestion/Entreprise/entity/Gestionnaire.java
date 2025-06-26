@@ -3,6 +3,10 @@ package com.gestionets.Gestion.Entreprise.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+<<<<<<< add_Services
+import lombok.experimental.SuperBuilder;
+=======
+>>>>>>> intialisation_du_projet
 
 import java.time.LocalDate;
 
@@ -12,7 +16,11 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+<<<<<<< add_Services
+@SuperBuilder
+=======
 @Builder
+>>>>>>> intialisation_du_projet
 public class Gestionnaire {
 
     @Id
