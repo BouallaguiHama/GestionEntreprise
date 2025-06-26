@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,8 +16,8 @@ import java.util.List;
 public class Article {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_article")
-    @NotNull(message = "L'identifiant est obligatoire")
     private Long idArticle;
 
     @Column(name = "nom_article", nullable = false)
@@ -24,19 +25,19 @@ public class Article {
     @Size(min = 2, max = 100, message = "Le nom doit contenir entre 2 et 100 caractères")
     private String nomArticle;
 
-    @Column(name = "prix_unitaire", nullable = false)
+    @Column(name = "prix_Achat", nullable = false)
     @NotNull(message = "Le prix est obligatoire")
-    private Float prixUnitaire;
+    private Float prixAchat;
 
-    @Column(name = "ref", nullable = false)
-    @NotNull(message = "La référence est obligatoire")
-    private String ref;
+    @Column(name = "prix_Vente", nullable = false)
+    private Float prixVente;
 
-    @Column(name = "obs")
-    private String obs;
+    @Column(name = "description", nullable = false)
+    @NotNull(message = "La Description est obligatoire")
+    private String description;
 
-    @Column(name = "vh")
-    private Float vh;
+    @Column(name = "minseuil")
+    private Long minSeuil;
 
     @Column(name = "date_article")
     private java.time.LocalDate dateArticle;
@@ -47,15 +48,15 @@ public class Article {
     private Depot depot;
 
 
-    @ManyToMany(mappedBy = "articles", fetch = FetchType.LAZY)
-    private List<CommandeClient> commandesClient;
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private List<CommandeClientArticle> lignesCommande = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "articles", fetch = FetchType.LAZY)
-    private List<CommandeFournisseur> commandesFournisseur;
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private List<CommandeFournisseurArticle> lignesCommandeFournisseur = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "articles", fetch = FetchType.LAZY)
-    private List<BonEntree> bonsEntree;
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private List<BonEntreeArticle> lignesBonEntree = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "articles", fetch = FetchType.LAZY)
-    private List<BonSortie> bonsSortie;
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private List<BonSortieArticle> lignesBonSortie = new ArrayList<>();
 }

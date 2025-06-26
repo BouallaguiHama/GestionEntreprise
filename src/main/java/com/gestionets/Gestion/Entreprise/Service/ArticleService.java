@@ -13,7 +13,7 @@ public interface ArticleService {
 
     void ModifierArticle(Article article);
 
-    void SupprimerArticle(Integer ID);
+    void SupprimerArticle(Long ID);
 
-    Optional<Article> RechercheArticleparID(Integer ID);
+    Optional<Article> RechercheArticleparID(Long ID);
 }

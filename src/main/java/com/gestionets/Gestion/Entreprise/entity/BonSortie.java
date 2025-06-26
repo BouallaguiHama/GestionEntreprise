@@ -18,7 +18,7 @@ public class BonSortie {
 
     @Id
     @Column(name = "num_bs")
-    @NotNull(message = "Le numéro de bon de sortie est obligatoire")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer numBs;
 
     @Column(name = "date_bs", nullable = false)
@@ -26,13 +26,8 @@ public class BonSortie {
     private LocalDate dateBs;
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "bon_sortie_article",
-            joinColumns = @JoinColumn(name = "num_bs"),
-            inverseJoinColumns = @JoinColumn(name = "id_article")
-    )
-    private List<Article> articles = new ArrayList<>();
+    @OneToMany(mappedBy = "bonSortie", cascade = CascadeType.ALL)
+    private List<BonSortieArticle> lignesBonSortie = new ArrayList<>();
 
 
     @ManyToOne(fetch = FetchType.LAZY)

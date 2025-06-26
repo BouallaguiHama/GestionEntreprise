@@ -47,13 +47,8 @@ public class Fournisseur {
     @Column(name = "rib")
     private String rib;
 
-    @OneToMany(
-            mappedBy = "fournisseur",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.LAZY
-    )
-    private List<CommandeFournisseur> commandesFournisseur = new ArrayList<>();
+    @OneToMany(mappedBy = "fournisseur")
+    private List<CommandeFournisseur> commandes = new ArrayList<>();
 
 
 
