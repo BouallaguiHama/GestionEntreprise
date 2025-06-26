@@ -4,10 +4,12 @@ import com.gestionets.Gestion.Entreprise.Repository.BrancheRepository;
 import com.gestionets.Gestion.Entreprise.Service.BrancheService;
 import com.gestionets.Gestion.Entreprise.entity.Branche;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class BrancheServiceImpl implements BrancheService {
 
     @Autowired

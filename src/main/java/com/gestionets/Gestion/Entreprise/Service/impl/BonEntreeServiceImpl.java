@@ -4,10 +4,12 @@ import com.gestionets.Gestion.Entreprise.Repository.BonEntreeRepository;
 import com.gestionets.Gestion.Entreprise.Service.BonEntreeService;
 import com.gestionets.Gestion.Entreprise.entity.BonEntree;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class BonEntreeServiceImpl implements BonEntreeService {
 
     @Autowired

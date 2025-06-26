@@ -5,10 +5,12 @@ import com.gestionets.Gestion.Entreprise.Repository.CommandeClientRepository;
 import com.gestionets.Gestion.Entreprise.Service.CommandeClientService;
 import com.gestionets.Gestion.Entreprise.entity.CommandeClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CommandeClientServiceImpl implements CommandeClientService {
 
     @Autowired

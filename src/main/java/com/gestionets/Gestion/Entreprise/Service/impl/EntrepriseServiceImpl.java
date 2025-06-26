@@ -4,10 +4,12 @@ import com.gestionets.Gestion.Entreprise.Repository.EntrepriseRepository;
 import com.gestionets.Gestion.Entreprise.Service.EntrepriseService;
 import com.gestionets.Gestion.Entreprise.entity.Entreprise;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class EntrepriseServiceImpl implements EntrepriseService {
 
     @Autowired

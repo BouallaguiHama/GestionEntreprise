@@ -4,10 +4,12 @@ import com.gestionets.Gestion.Entreprise.Repository.CommandeFournisseurRepositor
 import com.gestionets.Gestion.Entreprise.Service.CommandeFournisseurService;
 import com.gestionets.Gestion.Entreprise.entity.CommandeFournisseur;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CommandeFournisseurServiceImpl implements CommandeFournisseurService {
 
     @Autowired
