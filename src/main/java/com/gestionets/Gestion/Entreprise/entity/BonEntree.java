@@ -18,21 +18,16 @@ public class BonEntree {
 
     @Id
     @Column(name = "num_be")
-    @NotNull(message = "Le numéro de bon d'entrée est obligatoire")
-    private Integer numBe;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long numBe;
 
     @Column(name = "date_be", nullable = false)
     @NotNull(message = "La date du bon d'entrée est obligatoire")
     private LocalDate dateBe;
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "bon_entree_article",
-            joinColumns = @JoinColumn(name = "num_be"),
-            inverseJoinColumns = @JoinColumn(name = "id_article")
-    )
-    private List<Article> articles = new ArrayList<>();
+    @OneToMany(mappedBy = "bonEntree", cascade = CascadeType.ALL)
+    private List<BonEntreeArticle> lignesBonEntree = new ArrayList<>();
 
 
     @ManyToOne(fetch = FetchType.LAZY)

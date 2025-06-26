@@ -7,6 +7,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "clients")
 @Data
@@ -52,6 +55,6 @@ public class Client {
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
-    private CommandeClient commandeClient;
+    private List<CommandeClient> commandeClient =new ArrayList<>();
 
 }

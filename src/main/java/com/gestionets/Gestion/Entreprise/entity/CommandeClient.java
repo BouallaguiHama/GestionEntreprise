@@ -11,6 +11,8 @@ import org.apache.logging.log4j.util.Lazy;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "commande_client")
@@ -37,7 +39,10 @@ public class CommandeClient {
     @JoinColumn(name = "id_gestionnaire_vente")
     private GestionnaireVente gestionnaireVente;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_client")
     private Client client;
+
+    @OneToMany(mappedBy = "commandeClient", cascade = CascadeType.ALL)
+    private List<CommandeClientArticle> lignesCommande = new ArrayList<>();
 }

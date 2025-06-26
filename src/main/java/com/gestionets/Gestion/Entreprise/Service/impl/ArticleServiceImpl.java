@@ -32,12 +32,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void SupprimerArticle(Integer id) {
+    public void SupprimerArticle(Long id) {
         articleRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Article> RechercheArticleparID(Integer id) {
+    public Optional<Article> RechercheArticleparID(Long id) {
         return articleRepository.findById(id);
     }
 }

@@ -33,4 +33,8 @@ public class CommandeFournisseur {
     @JoinColumn(name = "id_fournisseur")
     private Fournisseur fournisseur;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_gestionnaire_achat")
+    private GestionnaireAchat gestionnaireAchat;
+
 }
